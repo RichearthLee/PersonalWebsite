@@ -1,0 +1,608 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Home</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <link rel="stylesheet" type="text/css" href="./Mycss/styles.css">
+	<link rel="stylesheet"  href="./Mycss/css1.css">
+	<link rel="stylesheet"  href="./Mycss/css2.css">
+	<link rel="stylesheet"  href="./Mycss/css3.css">
+	
+	<script type="text/javascript">
+
+	 function drdc(tgt,obj){
+	          	 
+     	 clearInterval(obj.timer);
+     	 obj.timer=setInterval(function(){
+
+     	  var speed=0;
+     	  
+     	  if(parseFloat(getComputedStyle(obj, null).opacity)<tgt){
+     	   speed=0.1;
+     	  }
+     	  else
+     	  {
+     	   speed=-0.1;
+     	  }
+
+
+     	  if(Math.abs(parseFloat(getComputedStyle(obj, null).opacity)-tgt)<0.001){	   
+     	   clearInterval(obj.timer);
+     	  }
+     	  else
+     	  {
+     	   obj.style.opacity=parseFloat(getComputedStyle(obj, null).opacity)+speed;
+     	  }   
+     	    	 
+     	 }, 30);
+	 
+	 
+	 }
+	 
+   function getStyle(obj,name){
+	 if(obj.currentStyle)
+	 {
+//	  alert(obj.currentStyle[name]);
+	   return parseInt(obj.currentStyle[name]);
+	 }
+	else
+	{
+//	alert(getComputedStyle(obj,false)[name]);
+	 return parseInt(getComputedStyle(obj,false)[name]); 
+	}
+	
+	}
+	
+	
+
+  function move(obj,att,tgt){
+ 
+  clearInterval(obj.timer);
+  obj.timer=setInterval(function(){  
+  var cur=Math.round(parseInt(getStyle(obj,att)));  
+  var speed=(tgt-cur)/2;
+  speed=speed>0?Math.ceil(speed):Math.floor(speed);
+  
+  if(cur==tgt)
+  {
+     clearInterval(obj.timer);
+  }
+  else
+  {
+    obj.style[att]=cur+speed+"px";
+  }
+  
+  
+  }, 30);
+
+
+}
+ 
+
+ var bgiNo=0;
+function changebgi(obj,dir,max){
+   if(dir==0){
+    bgiNo+=1;
+    if(bgiNo>max){ bgiNo=1;}
+   }
+   else{
+    bgiNo=bgiNo-1;
+    if(bgiNo<1) {bgiNo=max;}
+   }
+//   obj.style.backgroundImg="./images/bgi_"+bgiNo+".jpg";
+   obj.style.backgroundImage="url(./images/bgi_"+bgiNo+".jpg)";
+}
+
+
+function fixdaoshang(){
+  var oDao=document.getElementById("daohang");
+  var scrolltop=document.body.scrollTop;
+  var snh=window.screen.availHeight;
+  var slh=document.body.scrollHeight;
+  
+	if(scrolltop>800){
+	  if((scrolltop+snh+100)>slh)
+	  {oDao.style.top=slh-100-snh+"px";oDao.style.position="absolute";}
+	  else
+	  {oDao.style.position="fixed";oDao.style.top=0+"px";}
+	}
+	else
+	{
+	  oDao.style.position="absolute";
+	  oDao.style.top=800+"px";
+	}
+
+
+}
+function dingwei(){
+    var oul=document.getElementById("nav1");
+	var oa=oul.getElementsByTagName("a");
+	var oimg=document.getElementById("dingwei");
+	
+	for(var i=0;i<oa.length;i++){
+	  oa[i].onclick=function(){
+	  alert(180+i*17);
+      oimg.style.top=(180+i*17)+"px";
+	 };
+	
+	}
+ 
+}
+	 
+window.onload=function(){
+ 
+     
+	var oimg=document.getElementById("left");
+	var oimg1=document.getElementById("right");
+	var oDiv=document.getElementById("roll");
+	var oDao=document.getElementById("daohang");
+	var oNav=document.getElementById("nav1");
+	var oul=document.getElementById("nav1");
+	var oa=oul.getElementsByTagName("a");
+	var oli=oul.getElementsByTagName("li");
+	var odt=document.getElementsByTagName("dt");
+  
+	 oDao.style.height=window.screen.availHeight+"px";
+	 oNav.style.top=(window.screen.availHeight-getStyle(oNav,"height"))/2-100+"px";
+	
+//	 var n=0;
+//	 for(var i=0;i<9;i++){
+//	   n=n+i;
+//	 }
+//	alert(i);
+	
+    
+      var oul=document.getElementById("nav1");
+	var oa=oul.getElementsByTagName("a");
+	var oimg=document.getElementById("dingwei")[0];
+	
+
+
+	for(var i in oa){
+	  oa[i].onclick=function(){
+	  alert(1);
+      oimg.style.top=(180+i*17)+"px";
+	 };
+	
+	}
+     
+	 oimg.timer=null;
+	 oimg1.timer=null;
+	 
+	 oimg.onclick=function(){
+	 changebgi(oDiv, 1, 6);
+	 };
+	 oimg1.onclick=function(){
+	 changebgi(oDiv, 0, 6);
+	 };
+	 
+	 oimg.onmouseover=function(){
+	  drdc(1,oimg);
+	 };
+	 oimg.onmouseout=function(){
+	  drdc(0.4,oimg);
+	 };
+	 
+	 oimg1.onmouseover=function(){
+	  drdc(1,oimg1);
+	 };
+	 oimg1.onmouseout=function(){
+	  drdc(0.4,oimg1);
+	 };
+	 
+	};
+	
+	/*
+	网页可见区域宽：document.body.clientWidth 
+网页可见区域高：document.body.clientHeight 
+网页可见区域宽：document.body.offsetWidth (包括边线的宽) 
+网页可见区域高：document.body.offsetHeight (包括边线的宽) 
+网页正文全文宽：document.body.scrollWidth 
+网页正文全文高：document.body.scrollHeight 
+网页被卷去的高：document.body.scrollTop 
+网页被卷去的左：document.body.scrollLeft 
+网页正文部分上：window.screenTop 
+网页正文部分左：window.screenLeft 
+屏幕分辨率的高：window.screen.height 
+屏幕分辨率的宽：window.screen.width 
+屏幕可用工作区高度：window.screen.availHeight 
+屏幕可用工作区宽度：window.screen.availWidth 
+	*/
+window.onscroll=function(){
+
+//  var oDiv=document.getElementById("guider");
+//  var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+//
+//  move(oDiv,"top",scrollTop);
+    fixdaoshang();
+
+};
+
+
+	</script>
+
+  </head>
+  
+<body>
+    
+  <div id="whole">
+     
+   <div id="header">
+     
+        <div id=guider>
+          <div >
+            <ul id="nav">
+            <li><a href="#p1">导航1</a></li>
+            <li><a href="#p2">导航2</a></li>
+            <li><a href="#">导航3</a></li>
+            <li><a href="#">导航4</a></li>
+            <li><a href="#">导航5</a></li>
+            <li><a href="#">导航6</a></li>
+            </ul>
+        </div>
+        </div>
+       
+        
+        <div id=roll>
+         
+<!--           <img id="bg" alt="1" src="./images/b.jpg">-->
+         
+         
+        
+
+           <img id="left" class="tb" src="./images/left.png">
+           <img id="right" class="tb" src="./images/right.png">
+
+        </div>
+
+     </div>
+     
+     
+     
+     
+ <div id="contain">
+     
+       <div id="daohang">
+        <div>    
+        <img id="dingwei" alt="#" src="./images/jt.png">
+        <ul id="nav1">
+            <li><a href="#mp1">导航1</a></li>
+            <li><a href="#p2">导航2</a></li>
+            <li><a href="#p3">导航3</a></li>
+            <li><a href="#p4">导航4</a></li>
+            <li><a href="#mp5">导航5</a></li>
+            <li><a href="#p6">导航6</a></li>
+            <li><a href="#p7">导航7</a></li>
+            <li><a href="#mp8">导航8</a></li>
+            <li><a href="#p9">导航9</a></li>
+            <li><a href="#p10">导航10</a></li>
+            <li><a href="#mp11">导航11</a></li>
+            <li><a href="#p12">导航12</a></li>
+            <li><a href="#p13">导航13</a></li>
+        </ul>
+        </div>
+       </div>
+      
+      
+       <div id="con">
+        
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+    
+     <dl class="catalog">
+   <dt class="catalog_1">计算机</dt>
+   <dd class="catalog_2">用来计算的仪器 ... ...</dd>
+   <dt class="catalog_1">显示器</dt>
+   <dd class="catalog_2">以视觉方式显示信息的装置 ... ...</dd>
+    </dl>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con" id="ctn2">   <a name="p2"></a>
+       <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con" id="ctn1">  <a name="p1"></a>
+          <div class="zhengwen">
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       </div>
+  </div>
+     
+     
+     <div id="footer">
+       
+     </div>
+     
+     
+    </div>
+    </body>
+ 
+</html>
+
+

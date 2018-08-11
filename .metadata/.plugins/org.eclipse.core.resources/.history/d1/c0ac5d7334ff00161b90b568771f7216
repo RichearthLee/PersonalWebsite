@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+
+ .fgx{
+      	 
+ 
+ }
+ .con1 {
+   border:  1px; 
+
+    }
+    .zhengwen{
+    
+    font-weight:bold;
+	 font-family:'微软雅黑';
+	 font-size: 20px;
+	 text-indent:inherit;
+	 margin-left: 5px;
+	 margin-right: 5px;
+    }
+  .catalog {
+    position: relative;
+    margin-bottom: 7px;
+    padding-left: 20px;
+}
+  
+
+
+#contain {
+  background-image: url("../images/bgi_9.jpg");
+  
+ }
+ 
+#nav a:hover{
+	 background-color: green;
+	}
+	
+#daohang {
+   width:180px;
+   background-color:	#272727;
+   position: absolute;
+   top:800px;
+   box-shadow:inset 0px 0px 5px #000;
+ }
+ 
+#con {
+ position: relative;
+   left: 200px;
+   border:  1px; 
+   margin-left:50px;
+   margin-right:50px;
+   background-color:#F0F0F0;
+   box-shadow:inset 0px 0px 10px #000;
+   opacity:0.6;
+ }
+ 
+#nav1{
+  position: relative;
+  
+ }
+
+ #nav1 a{
+     position:relative;
+	 width:200px;
+	 left:40px;
+	 font-size: 25px;	 
+	 color:	#7B7B7B;
+	 font-family:'微软雅黑';
+	 display: block ;
+	 text-decoration: none;
+	 margin-top: 10px;
+	 
+	}
+	
+ #nav1 a[href^="#mp"]{
+     left:10px;
+     font-weight:bold;
+	 font-family:'微软雅黑';
+   
+   }
+ #nav1 a[href^="#p"]{
+     left:55px;
+	 font-family:'微软雅黑';
+   
+   }
+ #nav1 a:hover{
+	 
+	}
+  
+   
+  
+ #dingwei {
+   position: relative;
+   top:177px;
+   left: 130px;
+   width:60px;	
+   height:60px;
+  }
+#rjgc {
+	float: right;
+	width:300px;
+	
+	}

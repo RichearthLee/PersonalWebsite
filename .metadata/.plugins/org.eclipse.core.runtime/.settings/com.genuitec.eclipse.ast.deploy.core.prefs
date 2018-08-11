@@ -1,0 +1,24 @@
+#Wed Sep 07 21:04:26 CST 2016
+tomcat6Server.Website.isExploded=true
+tomcat6Server.Website.deployIsOverProject=false
+tomcat6Server.NetDemo.type=WebDeployment
+tomcat6Server.NetDemo.shouldBackup=false
+tomcat6Server.NetDemo.shouldOverwrite=false
+eclipse.preferences.version=1
+tomcat6Server.Website.altContextRoot=
+tomcat6Server.Website.isDeployed=true
+tomcat6Server.NetDemo.isDeployed=true
+tomcat6Server.NetDemo.isUptoDate=true
+tomcat6Server.NetDemo.altContextRoot=
+tomcat6Server.NetDemo.deploymentPath=E\:\\tomcat\\webapps\\NetDemo
+tomcat6Server.Website.shouldOverwrite=false
+tomcat6Server.NetDemo.deployIsOverProject=false
+tomcat6Server.NetDemo.isExploded=true
+tomcat6Server.Website.IEARProjectName=
+tomcat6Server.Website.type=WebDeployment
+tomcat6Server.NetDemo.IEARProjectName=
+tomcat6Server.NetDemo.contextRoot=/NetDemo
+tomcat6Server.Website.deploymentPath=E\:\\tomcat\\webapps\\Website
+tomcat6Server.Website.isUptoDate=true
+tomcat6Server.Website.contextRoot=/Website
+tomcat6Server.Website.shouldBackup=false

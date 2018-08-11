@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+  #whole{
+     height: 800px;
+     border: 10px solid ;
+  }
+  
+    #header {
+     background-color:#202020;
+     text-align:center;
+     height: 150px;
+     
+  }
+    #header ul{
+     position: relative;
+     top: 55px;
+  
+  
+  }
+  #header a{
+  
+  font-family: "微软雅黑";
+  font-size: 30px;
+  color:#FFFFFF;
+  text-decoration: none;
+  
+  }
+
+  #contain{
+  
+     height: 400px;
+     width: 1200px;
+     margin-left: auto;
+     margin-top: auto;
+  }
+  
+   #contain span{
+  
+     font-family: "微软雅黑";
+     font-size: 150px;
+     color: #202020;
+     position: relative;
+     top: -80px;
+  
+  }
+ 

@@ -1,0 +1,768 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Home</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <link rel="stylesheet" type="text/css" href="./Mycss/styles.css">
+	<link rel="stylesheet"  href="./Mycss/css1.css">
+	<link rel="stylesheet"  href="./Mycss/css2.css">
+	<link rel="stylesheet"  href="./Mycss/css3.css">
+	
+	<script type="text/javascript">
+
+	 function drdc(tgt,obj){
+	          	 
+     	 clearInterval(obj.timer);
+     	 obj.timer=setInterval(function(){
+
+     	  var speed=0;
+     	  
+     	  if(parseFloat(getComputedStyle(obj, null).opacity)<tgt){
+     	   speed=0.1;
+     	  }
+     	  else
+     	  {
+     	   speed=-0.1;
+     	  }
+     	  if(Math.abs(parseFloat(getComputedStyle(obj, null).opacity)-tgt)<0.001){	   
+     	   clearInterval(obj.timer);
+     	  }
+     	  else
+     	  {
+     	   obj.style.opacity=parseFloat(getComputedStyle(obj, null).opacity)+speed;
+     	  }   
+     	    	 
+     	 }, 30);
+	 }
+	 
+   function getStyle(obj,name){
+	 if(obj.currentStyle)
+	 {
+//	  alert(obj.currentStyle[name]);
+	   return parseInt(obj.currentStyle[name]);
+	 }
+	else
+	{
+//	alert(getComputedStyle(obj,false)[name]);
+	 return parseInt(getComputedStyle(obj,false)[name]); 
+	}
+	
+	}
+	
+	
+
+  function move(obj,att,tgt){
+ 
+  clearInterval(obj.timer);
+  obj.timer=setInterval(function(){  
+  var cur=Math.round(parseInt(getStyle(obj,att)));  
+  var speed=(tgt-cur)/2;
+  speed=speed>0?Math.ceil(speed):Math.floor(speed);
+  
+  if(cur==tgt)
+  {
+     clearInterval(obj.timer);
+  }
+  else
+  {
+    obj.style[att]=cur+speed+"px";
+  }
+  
+  
+  }, 30);
+
+
+}
+ 
+
+ var bgiNo=0;
+function changebgi(obj,dir,max){
+   if(dir==0){
+    bgiNo+=1;
+    if(bgiNo>max){ bgiNo=1;}
+   }
+   else{
+    bgiNo=bgiNo-1;
+    if(bgiNo<1) {bgiNo=max;}
+   }
+//   obj.style.backgroundImg="./images/bgi_"+bgiNo+".jpg";
+   obj.style.backgroundImage="url(./images/bgi_"+bgiNo+".jpg)";
+}
+
+
+function fixdaoshang(){
+  var oDao=document.getElementById("daohang");
+  var scrolltop=document.body.scrollTop;
+  var snh=document.body.clientHeight;
+  var slh=document.body.scrollHeight;
+  
+	if(scrolltop>800){
+	  if((scrolltop+snh+100)>slh)
+	  {oDao.style.top=slh-100-snh+"px";oDao.style.position="absolute";}
+	  else
+	  {oDao.style.position="fixed";oDao.style.top=0+"px";}
+	}
+	else
+	{
+	  oDao.style.position="absolute";
+	  oDao.style.top=800+"px";
+	}
+
+
+}
+ function  youbiao(){
+ 
+ 
+ 
+ 
+ }
+function dingwei(){
+    var oul=document.getElementById("nav1");
+	var oa=oul.getElementsByTagName("a");
+	var oimg=document.getElementById("dingwei");
+	var nav1=document.getElementById("nav1");
+	
+	var hg=getStyle(nav1, "height");
+	var top=(document.body.clientHeight-hg)/2;
+//	 for(var i=0;i<oa.length;i++){
+//      oa[i].no=i;
+//    }
+//
+//	for(var n=0;n<oa.length;n++){
+//	  oa[n].onclick=function(){
+//	   alert(n);
+//      oimg.style.top=(180+oa[n].no*17)+"px";
+//	 };
+//	}
+//     alert(getStyle(oa[0],"height"));
+    oa[0].onclick=function(){
+       move(oimg,"top",(top+0*45));
+    };
+    oa[1].onclick=function(){
+       move(oimg,"top",(top+1*45));
+    };
+    oa[2].onclick=function(){
+       move(oimg,"top",(top+2*45));
+    };
+    oa[3].onclick=function(){
+       move(oimg,"top",(top+3*45));
+    };
+    oa[4].onclick=function(){
+       move(oimg,"top",(top+4*45));
+    };
+    oa[5].onclick=function(){
+       move(oimg,"top",(top+5*45));
+    };
+    oa[6].onclick=function(){
+      move(oimg,"top",(top+6*45));
+    };
+    oa[7].onclick=function(){
+       move(oimg,"top",(top+7*45));
+    };
+    oa[8].onclick=function(){
+       move(oimg,"top",(top+8*45));
+    };
+    oa[9].onclick=function(){
+       move(oimg,"top",(top+9*45));
+    };
+    oa[10].onclick=function(){
+       move(oimg,"top",(top+10*45));
+    };
+    oa[11].onclick=function(){
+       move(oimg,"top",(top+11*45));
+    };
+    oa[12].onclick=function(){
+       move(oimg,"top",(top+12*45));
+    };
+    oa[13].onclick=function(){
+       move(oimg,"top",(top+13*45));
+    };
+}
+function setfont(){
+ var ofont=document.getElementsByTagName("h1");
+ var ofont1=document.getElementsByTagName("h2");
+//   for (i in ofont){
+//    ofont[i].style.fontSize=100+"px";
+//  }
+  for(var i=0;i<ofont.length;i++){
+     ofont[i].style.fontSize=80+"px";
+     ofont[i].style.color="006000";
+  }
+   for(var i=0;i<ofont1.length;i++){
+     ofont1[i].style.fontSize=50+"px";
+     ofont1[i].style.color="#272727";
+  }
+}
+	 
+function setwidth(){
+ 
+  var con=document.getElementById("con");
+  var roll=document.getElementById("roll");
+  var guider=document.getElementById("guider");
+  con.style.width=(window.screen.width-330)+"px";
+  roll.style.width=(document.body.clientWidth)+"px";
+  guider.style.width=(document.body.clientWidth)+"px";
+  
+  var oimg1=document.getElementById("swxf1");
+  oimg1.style.width=(window.screen.width-340)+"px";
+  var oimg2=document.getElementById("swxf2");
+  oimg2.style.width=(window.screen.width-340)+"px";
+   var oimg3=document.getElementById("lol");
+  oimg3.style.width=(window.screen.width-340)+"px";
+  var oimg4=document.getElementById("ff15");
+  oimg4.style.width=(window.screen.width-340)+"px";
+ 
+  var oimg=document.getElementsByClassName("fgx");
+//  for (i in oimg){
+//    oimg[i].style.width=(window.screen.width-330)+"px";
+//  }
+ 
+  
+  for(var i=0;i<oimg.length;i++){
+  oimg[i].style.width=(window.screen.width-330)+"px";
+  }
+  
+}	
+
+function setheight(){
+   
+
+
+} 
+var dhtop;
+window.onload=function(){
+
+   
+   
+     
+	var oimg=document.getElementById("left");
+	var oimg1=document.getElementById("right");
+	var oDiv=document.getElementById("roll");
+	var oDao=document.getElementById("daohang");
+	var oNav=document.getElementById("nav1");
+	var oul=document.getElementById("nav1");
+	var oa=oul.getElementsByTagName("a");
+	var oli=oul.getElementsByTagName("li");
+	var odt=document.getElementsByTagName("dt");
+  
+ 
+	 oDao.style.height=document.body.clientHeight+21+"px";
+	 dhtop=(document.body.clientHeight-getStyle(oNav,"height")-120)/2;
+	 oNav.style.top=dhtop+"px";
+	
+	
+	 oimg.timer=null;
+	 oimg1.timer=null;
+	 
+	 oimg.onclick=function(){
+	 changebgi(oDiv, 1, 6);
+	 };
+	 oimg1.onclick=function(){
+	 changebgi(oDiv, 0, 6);
+	 };
+	 
+	 oimg.onmouseover=function(){
+	  drdc(1,oimg);
+	 };
+	 oimg.onmouseout=function(){
+	  drdc(0.4,oimg);
+	 };
+	 
+	 oimg1.onmouseover=function(){
+	  drdc(1,oimg1);
+	 };
+	 oimg1.onmouseout=function(){
+	  drdc(0.4,oimg1);
+	 };
+//	 var n=0;
+//	 for(var i=0;i<9;i++){
+//	   n=n+i;
+//	 }
+//	alert(i);
+     
+    setwidth();
+    setfont();
+//    dingwei();
+//    var oul=document.getElementById("nav1");
+//	var oa=oul.getElementsByTagName("a");
+//	var oimg=document.getElementById("dingwei");
+//	
+//    for(var i=0;i<oa.length;i++){
+//      oa[i].no=i;
+//    }
+//	for(var n in oa){
+//	  oa[n].onclick=function(){
+//	  alert(oa[1]);
+//      oimg.style.top=(180+oa[no].no*17)+"px";
+//	 };
+//	}
+//     
+//    
+
+	 
+	};
+
+	/*
+	网页可见区域宽：document.body.clientWidth 
+网页可见区域高：document.body.clientHeight 
+网页可见区域宽：document.body.offsetWidth (包括边线的宽) 
+网页可见区域高：document.body.offsetHeight (包括边线的宽) 
+网页正文全文宽：document.body.scrollWidth 
+网页正文全文高：document.body.scrollHeight 
+网页被卷去的高：document.body.scrollTop 
+网页被卷去的左：document.body.scrollLeft 
+网页正文部分上：window.screenTop 
+网页正文部分左：window.screenLeft 
+屏幕分辨率的高：window.screen.height 
+屏幕分辨率的宽：window.screen.width 
+屏幕可用工作区高度：window.screen.availHeight 
+屏幕可用工作区宽度：window.screen.availWidth 
+	*/ 
+	
+//	    <dl class="catalog">
+//       <dt class="catalog_1">计算机</dt>
+//       <dd class="catalog_2">用来计算的仪器 ... ...</dd>
+//       <dt class="catalog_1">显示器</dt>
+//       <dd class="catalog_2">以视觉方式显示信息的装置 ... ...</dd>
+//     </dl>
+window.onscroll=function(){
+
+//  var oDiv=document.getElementById("guider");
+//  var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+//
+//  move(oDiv,"top",scrollTop);
+    fixdaoshang();
+    
+    var con=document.getElementsByClassName("con1");
+     var oul=document.getElementById("nav1");
+	var oa=oul.getElementsByTagName("a");
+	var oimg=document.getElementById("dingwei");
+//    alert(getStyle(con[0],"top"));
+//     alert($('a').offset().top)
+       var top=dhtop+55;
+       
+      if(con[0].offsetTop<(document.body.scrollTop-600)&&con[1].offsetTop>(document.body.scrollTop-800)){
+        move(oimg,"top",(top+0*45));
+      }
+      if(con[1].offsetTop<(document.body.scrollTop-600)&&con[2].offsetTop>(document.body.scrollTop-800)){
+        move(oimg,"top",(top+1*45));
+      }
+      if(con[2].offsetTop<(document.body.scrollTop-600)&&con[3].offsetTop>(document.body.scrollTop-800)){
+        move(oimg,"top",(top+2*45));
+      }
+      if(con[3].offsetTop<(document.body.scrollTop-600)&&con[4].offsetTop>(document.body.scrollTop-800)){
+        move(oimg,"top",(top+3*45));
+      }
+      if(con[4].offsetTop<(document.body.scrollTop-600)&&con[5].offsetTop>(document.body.scrollTop-800)){
+        move(oimg,"top",(top+4*45));
+      }
+      if(con[5].offsetTop<(document.body.scrollTop-600)&&con[6].offsetTop>(document.body.scrollTop-880)){
+        move(oimg,"top",(top+5*45));
+      }
+      if(con[6].offsetTop<(document.body.scrollTop-600)&&con[7].offsetTop>(document.body.scrollTop-880)){
+        move(oimg,"top",(top+6*45));
+      }
+      if(con[7].offsetTop<(document.body.scrollTop-600)&&con[8].offsetTop>(document.body.scrollTop-880)){
+        move(oimg,"top",(top+7*45));
+      }
+      if(con[8].offsetTop<(document.body.scrollTop-600)&&con[9].offsetTop>(document.body.scrollTop-880)){
+        move(oimg,"top",(top+8*45));
+      }
+      if(con[9].offsetTop<(document.body.scrollTop-600)&&con[10].offsetTop>(document.body.scrollTop-880)){
+        move(oimg,"top",(top+9*45));
+      }
+      if(con[10].offsetTop<(document.body.scrollTop-600)&&con[11].offsetTop>(document.body.scrollTop-880)){
+        move(oimg,"top",(top+10*45));
+      }
+      if(con[11].offsetTop<(document.body.scrollTop-600)&&con[12].offsetTop>(document.body.scrollTop-880)){
+        move(oimg,"top",(top+11*45));
+      }
+       if(con[12].offsetTop<(document.body.scrollTop-600)){
+        move(oimg,"top",(top+12*45));
+      }
+
+};
+
+
+	</script>
+
+  </head>
+  
+<body>
+    
+  <div id="whole">
+     
+   <div id="header">
+     
+        <div id=guider>
+          <div >
+            <ul id="nav">
+            <li><a href="./time.html">时钟</a></li>
+            <li><a href="./contacts.html">联系</a></li>           
+            <li><a href="./articles.html">文本</a></li>
+            <li><a href="./achievement.html">成就</a></li>
+            <li><a href="./guestbook.html">留言</a></li>
+            <li><a href="./about.html">关于</a></li>
+            </ul>
+        </div>
+        </div>
+       
+        
+        <div id=roll>
+         
+<!--           <img id="bg" alt="1" src="./images/b.jpg">-->
+         
+         
+        
+
+           <img id="left" class="tb" src="./images/left.png">
+           <img id="right" class="tb" src="./images/right.png">
+
+        </div>
+
+     </div>
+     
+     
+     
+     
+ <div id="contain">
+     
+       <div id="daohang">
+        <div>    
+        <img id="dingwei" alt="#" src="./images/jt2.png">
+        <ul id="nav1">
+            <li><a href="#mp1">个人简介:</a></li>
+            <li><a href="#p2">个人</a></li>
+            <li><a href="#p3">学校</a></li>
+            <li><a href="#p4">专业</a></li>
+            <li><a href="#mp5">电子竞技:</a></li>
+            <li><a href="#p6">OW</a></li>
+            <li><a href="#p7">LOL</a></li>
+            <li><a href="#mp8">影视作品:</a></li>
+            <li><a href="#p9">FF15</a></li>
+            <li><a href="#p10">黑镜</a></li>
+            <li><a href="#mp11">软件:</a></li>
+            <li><a href="#p12">Ps</a></li>
+            <li><a href="#p13">V.S.</a></li>
+        </ul>
+        </div>
+       </div>
+      
+      
+       <div id="con">     
+       <div class="con1" id="ctn1">  <a  name="mp1"></a>
+          <div class="zhengwen">
+          
+            
+           <h1>个人简介</h1>
+           
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con1" id="ctn2">   <a  name="p2"></a>
+       <div class="zhengwen">
+           <br>
+         <h2>简介</h2>
+            <p>姓名：李钰坤   </p>
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：编程 电影 电子竞技 篮球 旅游</p>
+            <p>英语等级：cet6</p>
+             <br>
+            <p>精通Java C++編程語言和mysql语言以及 HTML/CSS Javascript jquery web前端語言，會使用bootstrap框架開發餉應式網站。</p>
+            <p>能熟练使用Photoshop Dreamweaver myeclipse mysql VisualStudio软件。</p>
+            <br>
+            <p>有两次的項目開發經驗:<br>　　使用java语言開發安卓app《医疗咨询机器人》，并獲得河南省省級团体赛獎項；<br>　　使用 HTML/CSS Javascript jquery 等web前端語言，自主搭建個人網站www.richearthlee.com,
+            域名和服務器均爲自己購買并搭建。</p>
+            <br>
+            <p>有一次实习经历：<br>　　润佑科技公司   web前端开发   参与搭建公司门户网站</p>
+            <br>
+ 
+            <br>
+           
+       
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con1" id="ctn1">  <a  name="p3"></a>
+          <div class="zhengwen">
+           <h2>河南大学</h2>
+            <img class="zw" alt="zw" src="./images/henan.jpg">
+            
+            <p>　　　河南大学位于名城开封，校区横跨中原经济区的核心区郑汴都市区。毗邻新郑国际机场、京广高铁、徐兰高铁、京港澳高速、连霍高速公路。
+            1912年，著名教育家王敬芳发起，中华民国大总统袁世凯、河南都督张镇芳支持，河南留学欧美预备学校在河南贡院旧址建立，林伯襄任校长。
+            1923年，著名教育家凌冰倡导，河南督军冯玉祥支持，河南历史上第一所大学中州大学，以河南留学欧美预备学校为基础成立，张鸿烈任校长。
+            后发展为国立第五中山大学、省立河南大学、国立河南大学。新中国成立后，河南大学分出河南医学院、河南农学院、新乡师范学院、河南化工学院、信阳师范学院，
+            组建武汉水利学院、中南财经学院，校本部改为开封师范学院，1984年恢复河南大学校名。目前是一所拥有文、史、哲、经、管、法、理、工、医、农、教育、艺术等12个学科门类的综合性大学，
+            是国务院规划建设的全国一流大学。<p>
+            <br>
+            <br>
+          <p>　　　河南大学坐落在历史文化名城、八朝古都开封。这里曾是河南贡院的所在地，1903、1904年最后两场全国会试在这里举行，上千年的科举制度在这里划上句号。1912年，以林伯襄为代表的一批河南仁人先贤，在欧风美雨和辛亥革命胜利的曙光中创办了河南留学欧美预备学校，成为当时中国的三大留学培训基地之一。
+          后历经中州大学、国立第五中山大学、省立河南大学等阶段，1942年改为国立河南大学，成为拥有文、理、工、农、医、法等6大学院的综合性大学，是当时学术实力雄厚、享誉国内外的国立大学之一。新中国成立后，经院系调整，河南大学农学院、医学院、行政学院分别独立设置为河南农学院、河南医学院、河南行政学院，水利、财经等院系也先后调入武汉大学、中南财经政法大学等高校，校本部更名为河南师范学院。
+          后又经开封师范学院、河南师范大学等阶段，1984年恢复河南大学校名。2008年10月17日，河南省人民政府和教育部签订共建协议，河南大学正式进入省部共建高校行列。
+建有国家教育部黄河文明与可持续发展研究中心、国家教育部体育艺术师资培训培养基地、国家体育总局社会科学研究基地及国家大学生文化素质教育基地等4个国家级教育、科研基地。办有出版社和多种学术刊物，图书馆藏书750万册(件)。校区总面积220万平方米，建筑面积147万平方米。其中明伦校区近代建筑群是国家重点文物保护单位。
+            <p>
+            <br>
+            <br>
+            <br>
+            <br>
+             
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con1" id="ctn1">  <a  name="p4"></a>
+          <div class="zhengwen">
+            <img id="rjgc" class="zw" alt="zw" src="./images/rj.jpg">
+          <h2>软件工程</h2><br>    
+          <h2>定义</h2>
+            
+           <p>　　 软件工程一直以来都缺乏一个统一的定义，很多学者、组织机构都分别给出了自己认可的定义：<p>
+           <br>
+           <p>　　　BarryBoehm：运用现代科学技术知识来设计并构造计算机程序及为开发、运行和维护这些程序所必需的相关文件资料。<p>
+            <br>
+           <p>　　　IEEE：在软件工程术语汇编中的定义：软件工程是：1.将系统化的、严格约束的、可量化的方法应用于软件的开发、运行和维护，即将工程化应用于软件；2.在1中所述方法的研究<p>
+           <br>
+           <p>　　　FritzBauer：在NATO会议上给出的定义：建立并使用完善的工程化原则，以较经济的手段获得能在实际机器上有效运行的可靠软件的一系列方法。<p>
+            <br>
+           <p>　　　《计算机科学技术百科全书》：软件工程是应用计算机科学、数学、逻辑学及管理科学等原理，开发软件的工程。软件工程借鉴传统工程的原则、方法，以提高质量、降低成本和改进算法。其中，计算机科学、数学用于构建模型与算法，工程科学用于制定规范、设计范型(paradigm)、评估成本及确定权衡，管理科学用于计划、资源、质量、成本等管理。<p>
+                      <br>
+           <p>　　　比较认可的一种定义认为：软件工程是研究和应用如何以系统性的、规范化的、可定量的过程化方法去开发和维护软件，以及如何把经过时间考验而证明正确的管理技术和当前能够得到的最好的技术方法结合起来。<p>
+           
+                       <br>
+           <p>　　　ISO 9000对软件工程过程的定义是：软件工程过程是输入转化为输出的一组彼此相关的资源和活动。<p>
+              <br>
+           <p>　　　其它定义：1．运行时，能够提供所要求功能和性能的指令或计算机程序集合。2．程序能够满意地处理信息的数据结构。3．描述程序功能需求以及程序如何操作和使用所要求的文档。以开发语言作为描述语言，可以认为：软件=程序+数据+文档<p>
+        
+         <h2>内涵</h2>
+                       <p>　　 一、软件工程过程是指为获得软件产品，在软件工具的支持下由软件工程师完成的一系列软件工程活动，包括以下四个方面：<p>
+                       <br>
+                       <p>　　　　　　1、P（Plan）——软件规格说明。规定软件的功能及其运行时的限制。<p>
+                       <br>
+                       <p>　　　　　　2、D（DO）——软件开发。开发出满足规格说明的软件。<p>
+                       <br>
+                       <p>　　　　　　3、C（Check）——软件确认。确认开发的软件能够满足用户的需求。<p>
+                       <br>
+                       <p>　　　　　　4、A（Action）——软件演进。软件在运行过程中不断改进以满足客户新的需求。<p>
+                  <br>
+                  <p>　　二、从软件开发的观点看，它就是使用适当的资源（包括人员，软硬件资源，时间等），为开发软件进行的一组开发活动，在活动结束时输入（即用户的需求）转化为输出（最终符合用户需求的软件产品）。<p>
+                  <br>
+                  <p>　　三个阶段：定义阶段：可行性研究初步项目计划、需求分析；开发阶段：概要设计、详细设计、实现、测试；运行和维护阶段：运行、维护、废弃<p>
+                  <br>
+                  <p>　　原则：1、抽象；2、信息隐蔽；3、模块化；4、局部化；5、确定性；6，一致性；7、完备性；8、可验证性<p>
+          <br>
+           
+           
+           
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+          
+       <div class="con1" id="ctn1">  <a  name="mp5"></a>
+          <div class="zhengwen">
+          
+          <h1>电子竞技</h1>
+          
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con1" id="ctn1">  <a  name="p6"></a>
+          <div class="zhengwen">
+           <h2>守望先锋</h2><br><br>
+            <p>　　《守望先锋》（Overwatch，简称OW） 是由暴雪娱乐公司开发的一款第一人称射击游戏，于2016年5月24日全球上市，中国大陆地区由网易公司代理。<p> 
+            <br>
+            <p>　　　游戏以未来地球为背景，讲述人类、守望先锋成员和智能机械的恩怨纠葛。游戏拥有22位英雄，每一位英雄都有各自标志性的武器和技能。<p>
+            <br>
+            <img id="swxf1" class="zw" alt="zw" src="./images/swxf1.jpg">
+            <br>
+            <br>
+            <p>　　　　　　21世纪20年代初，人类设计了由人工智能创造的智能机械（简称为智械），其旨在加强生产和创造世界经济繁荣。然而，令人难以置信的事情发生了，智械变得充满恶意，并开始大量生产军用机器人试图毁灭人类。<p>
+            <br>
+            
+            <img id="swxf2" class="zw" alt="zw" src="./images/swxf2.jpg">
+            <br>
+            <br>
+            <p>　　　　　　各国政府未能阻止智能机械的进攻，因此联合国创建了一个国际维和组织，以反抗智能机械。汇集全世界最优秀最精英的组织被命名为“守望先锋”，其将围绕机器人军队展开一场实力不对称的战争。<p>
+            <br>
+            <br>
+            <a style="color:green;position: relative;left: 40%;" href="http://ow.blizzard.cn/game/overview/">进入暴雪《守望先锋》官网</a>
+            
+            <br>
+            <br>
+            
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       
+       <div class="con1" id="ctn1">  <a  name="p7"></a>
+          <div class="zhengwen">
+          <h2>英雄联盟</h2><br><br>
+            <p>　　　《英雄联盟》(简称LOL)是由美国拳头游戏(Riot Games)开发、中国大陆地区腾讯游戏代理运营的英雄对战MOBA竞技网游。<p><br>
+			<p>　　　游戏里拥有数百个个性英雄，并拥有排位系统、天赋系统、符文系统等特色养成系统。<p><br>
+            <p>　　　《英雄联盟》还致力于推动全球电子竞技的发展，除了联动各赛区发展职业联赛、打造电竞体系之外，每年还会举办“季中冠军赛”“全球总决赛”“All Star全明星赛”三大世界级赛事，
+                     获得了亿万玩家的喜爱，形成了自己独有的电子竞技文化。<p><br>
+            <br>
+            <img id="lol" class="zw" alt="zw" src="./images/lol.jpg">
+            <br>
+            <br>
+           
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       
+       <div class="con1" id="ctn1">  <a  name="mp8"></a>
+          <div class="zhengwen">
+         
+            
+           <h1>影视作品</h1>
+           
+            
+          </div>
+          <img  class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       
+       <div class="con1" id="ctn1">  <a  name="p9"></a>
+          <div class="zhengwen">
+          <h2>《最终幻想XV》</h2><br><br>
+            <p>　　《王者之剑 最终幻想XV》是一部2016年日本电脑动画科幻动作电影。影片基于2016年电子角色扮演游戏《最终幻想XV》的世界观，构成新的水晶故事子系列的一部分。本片由野末武志执导，他曾是最终幻想CGI电影《最终幻想VII 降临之子》（2005）的联合导演。《最终幻想XV》总监田畑端担任电影监制，长谷川隆任编剧，约翰·R·格雷厄姆负责作曲。该影片几乎可代表现在CG动画电影的最高技术<p>
+			<br>
+			<p>　　日语版主要配音演员有绫野刚、忽那汐里、矶部勉，英语版为肖恩·比恩、琳娜·海蒂、亚伦·保尔。《王者之剑》为初次接触最终幻想世界的观众作了介绍，顺便传递一些《最终幻想XV》的背景信息。影片于2016年7月9日登陆日本影院，2016年8月19日登陆美国精选影院。<p>
+			<br>
+			<p>　　2017年1月4日，最终幻想15新浪官方微博确认《王者之剑》已成功过审，将于国内院线上映，档期未定。<p>
+            <br>
+            <br>
+            <img id="ff15" class="zw" alt="zw" src="./images/ff15.jpg">
+            <br>
+            <br>
+
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       
+       <div class="con1" id="ctn1">  <a  name="p10"></a>
+          <div class="zhengwen">
+     <h2>黑镜</h2><br><br>
+            <img style="float: left;" alt="分割线" src="./images/bm.jpg">
+            <br><br> <br>
+                         <br>
+            <p>　　《黑镜》（Black Mirror）是英国电视4台（Channel 4）及美国NetFlix公司出品的迷你电视剧。由英国制片人查理·布洛克编剧及制作，包括第一季、第二季、圣诞特辑和第三季构成 。<p>
+			<br>
+			
+			<p>　　该剧分别以多个建构于现代科技背景的独立故事，表达了当代科技对人性的利用、重构与破坏。<p>
+			<br>
+			<p>　　该剧第一季于2011年12月播出，第二季于2013年2月13日播出，圣诞特辑于2014年12月6日在英国首播。第三季于2016年10月21日开播。<p>
+            <br>
+                        　　类型: 剧情，喜剧，科幻，惊悚，恐怖，讽刺
+                        <br>
+                         <br>
+                        　　导演: Otto Bathurst、尤洛斯·林、Brian Welsh
+            <br>
+            <br><br><br>
+
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+       <div class="con1" id="ctn1">  <a  name="mp11"></a>
+          <div class="zhengwen">
+            
+            <h1>软件</h1>
+           
+           
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       
+        <div class="con1" id="ctn1">  <a  name="p12"></a>
+          <div class="zhengwen">
+            <h2>Adobe Photoshop</h2><br>
+            
+          <p>　　Adobe Photoshop，简称“PS”，是由Adobe Systems开发和发行的图像处理软件。</p>
+          <br>
+          <p>　　Photoshop主要处理以像素所构成的数字图像。使用其众多的编修与绘图工具，可以有效地进行图片编辑工作。ps有很多功能，在图像、图形、文字、视频、出版等各方面都有涉及。</p>
+          <br>
+          <p>　　2003年，Adobe Photoshop 8被更名为Adobe Photoshop CS。2013年7月，Adobe公司推出了新版本的Photoshop CC，自此，Photoshop CS6作为Adobe CS系列的最后一个版本被新的CC系列取代。</p>
+          <br>
+          <p>　　截止2016年12月Adobe PhotoshopCC2017为市场最新版本。</p>
+          <br>
+          <p>　　Adobe支持Windows操作系统 、安卓系统与Mac OS， 但Linux操作系统用户可以通过使用Wine来运行Photoshop。</p>
+          <br>
+          <br>
+          <p style="text-align:center;"><img style=""; alt="" src="./images/PS2.PNG"></p>
+          <br>
+          <br>
+          <p style="text-align:center"><img alt="分割线" src="./images/ps.png"></p>
+          <br>
+          <br>
+          </div>
+          
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+        
+       <div class="con1" id="ctn1">  <a  name="p13"></a>
+          <div class="zhengwen">
+            <h2>Microsoft Visual Studio</h2><br>
+            <p style="text-align:center"><img alt="分割线" src="./images/vs.jpg"></p>
+            <br>
+            <br>
+          <p>　　 Microsoft Visual Studio（简称VS）是美国微软公司的开发工具包系列产品。VS是一个基本完整的开发工具集，它包括了整个软件生命周期中所需要的大部分工具，
+                                 如UML工具、代码管控工具、集成开发环境(IDE)等等。所写的目标代码适用于微软支持的所有平台，包括Microsoft Windows、Windows Mobile、Windows CE、.NET Framework、.NET 
+                                 Compact Framework和Microsoft Silverlight 及Windows Phone。</p>
+          <br><p>　　Visual Studio是目前最流行的Windows平台应用程序的集成开发环境。最新版本为 Visual Studio 2017 版本，基于.NET Framework 4.5.2 。</p>
+          <br>
+          <p>　　1997年，微软发布了 Visual Studio 97。包含有面向 Windows 开发使用的Visual Basic 5.0、Visual C++ 5.0，面向Java开发的Visual J++和面向数据库开发的 Visual FoxPro，还包含有创建 DHTML (Dynamic HTML) 所需要的 Visual InterDev。其中，Visual Basic 和 Visual FoxPro 使用单独的开发环境，其他的开发语言使用统一的开发环境。</p>
+          <br><p>　　1998 年，微软发布了 Visual Studio 6.0。所有开发语</p>
+          <br><p>　　Visual Studio</p>
+          <br><p>　　Visual Studio</p>
+          <br><p>　　言的开发环境版本均升至 6.0。这也是 Visual Basic 最后一次发布，从下一个版本 (7.0) 开始，Microsoft Basic 进化成了一种新的面向对象的语言：Microsoft Basic .NET 2002。由于微软公司对于 Sun 公司 Java 语言扩充导致与 Java虚拟机不兼容被 Sun 告上法庭，微软在后续的 Visual Studio 中不再包括面向 Java 虚拟机的开发环境。</p>
+          <img style="float: right;width:700px;height:500px;" alt="分割线" src="./images/vs1.jpg">
+          <br><p>　　2002 年，随着 .NET 口号的提出与 Windows XP/Office XP 的发布，微软发布了 Visual Studio .NET（内部版本号为 7.0）。在这个版本的 Visual Studio 中，微软剥离了 Visual FoxPro 作为一个单独的开发环境以 Visual FoxPro 7.0 单独销售，同时取消了 Visual InterDev。与此同时，微软引入了建立在 .NET 框架上（版本1.0）的托管代码机制以及一门新的语言C#（读作 C Sharp）。C# 是一门建立在C++和 Java 基础上的现代语言，是编写 .NET 框架的语言。</p>
+          <br><p>　　.NET的通用语言框架机制（Common Language Runtime, CLR），其目的是在同一个项目中支持不同的语言所开发的组件。所有 CLR 支持的代码都会被解释成为 CLR 可执行的机器代码然后运行。</p>
+          
+          <br><p>　　.NET控件[1]  是指以输入或操作数据的对象。.NET控件是.NET平台下对数据和方法的封装。有自己的属性和方法。属性是控件数据的简单访问者。方法则是控件的一些简单而可见的功能。过去，开发人员将 C/C++ 与 Microsoft 基础类 (MFC) 或应用程序快速开发 (RAD) 环境（如 Microsoft ® Visual Basic™）一起使用来创建这样的应用程序。.NET Framework 将这些现有产品的特点合并到了单个且一致的开发环境中，该环境大大简化了客户端应用程序的开发。包含在 .NET Framework 中的 Windows 窗体类旨在用于 GUI 开发。您可以轻松创建具有适应多变的商业需求所需的灵活性的命令窗口、按钮、菜单、工具栏和其他屏幕元素。</p>
+          <br><p>　　Visual Basic、Visual C++ 都被扩展为支持托管代码机制的开发环境，且Visual Basic .NET更是从 Visual Basic 脱胎换骨，彻底支持面向对象的编程机制。而 Visual J++ 也变为 Visual J#。后者仅语法同 Java 相同，但是面向的不是 Java虚拟机，而是 .NET Framework。</p>
+          <br><p>　　2003 年，微软对 Visual Studio 2002 进行了部分修订，以 Visual Studio 2003 的名义发布（内部版本号为 7.1）。Visio 作为使用统一建模语言（UML）架构应用程序框架的程序被引入，同时被引入的还包括移动设备支持和企业模版。.NET 框架也升级到了 1.1。</p>
+          <br><p>　　2005 年，微软发布了 Visual Studio 2005。.NET 字眼从各种语言的名字中被抹去，但是这个版本的 Visual Studio 仍然还是面向 .NET 框架的（版本2.0）。</p>
+          <br><p>　　这个版本的 Visual Studio 包含有众多版本，分别面向不同的开发角色。同时还永久提供免费的 Visual Studio Express 版本。</p>
+         <br> <p>　　2007年11月，微软发布了 Visual Studio 2008。</p>
+         <br> <p>　　2010年4月12，微软发布了 Visual Studio 2010 以及.NET Framework 4.0。</p>
+         <br> <p>　　2012年9月12日，微软在西雅图发布 Visual Studio 2012。</p>
+         <br> <p>　　2013年11月13日，微软发布 Visual Studio 2013。</p>
+          <br><p>　　2014年11月，微软发布 Visual Studio 2015 。</p>
+          <br>
+            <br>
+          </div>
+          <img class="fgx" alt="分割线" src="./images/fgx_2.jpg">
+       </div>
+       </div>
+  </div>
+     
+     
+     <div id="footer">
+       
+     </div>
+     
+     
+    </div>
+    </body>
+ 
+</html>
+
+

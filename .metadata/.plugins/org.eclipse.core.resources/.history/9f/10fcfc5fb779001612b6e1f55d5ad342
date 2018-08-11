@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+    #header{
+	background: #202020;
+	opacity: 0.8;
+	height:200px;
+	}
+     
+      #text1 {
+	border: 1px ;
+	position: relative;
+	top:40px;
+	} 
+	
+    #text1 p{
+	background: #gray ;
+    font-size: 50px;
+	text-align: center;
+	clear: left;
+	}
+	
+	#guider {
+	 position: relative;
+	 border: 1px  ;
+	
+	
+	}
+	#guide_1 li{
+	  border: 1px  ;
+	  position: relative;
+	  top: 80px;
+	  left:200px;
+	  width: 375px;
+	  float: left;
+	}
+	
+	
+	#guide_1 a{
+	
+	 border: 1px ;
+	 font-size: 50px;
+	 text-align: center;
+	 display: block;
+	 text-decoration: none;
+	}
+	
+	#guide_1 a:HOVER{
+	background: #BABABA;
+	 
+	}
+	
+	

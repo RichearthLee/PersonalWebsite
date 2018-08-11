@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyHtml.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+   <script type="text/javascript">
+      function multi(){
+      a=parseInt(prompt("输入第一个数字：",0));
+      b=parseInt(prompt("输入第二个数字：",0));
+      document.forms["form"]["result"].value=a*b;
+      }
+   
+   </script>
+  <body onload="multi()">
+    <form action="#" method="get" name="form">两数的乘积：<output name="result"></output> </form>
+    
+  </body>
+</html>

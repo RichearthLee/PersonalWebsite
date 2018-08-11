@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <link rel="stylesheet" type="text/css" href="./Mycss/styles.css">
+	<link rel="stylesheet"  href="./Mycss/css1.css">
+	<link rel="stylesheet"  href="./Mycss/css2.css">
+	<link rel="stylesheet"  href="./Mycss/css3.css">
+	
+	<script type="text/javascript">
+
+	 var timer=null;
+	 var alpha=0.1;
+	 function drdc(tgt,obj){
+	      var oimg=document.getElementById("left");
+	     var oimg1=document.getElementById("right");
+	     
+     	 clearInterval(timer);
+     	 timer=setInterval(function(){
+     	  var speed=0;
+     	  
+     	  if(alpha<tgt){
+     	   speed=0.1;
+     	  }
+     	  else
+     	  {
+     	   speed=-0.1;
+     	  }
+     	 
+     	 
+     	   if(Math.round(alpha*10)/10==tgt){	   
+     	   clearInterval(timer);
+//     	   alert(alpha);
+     	  }
+     	  else
+     	  {
+     	    alpha+=speed;
+     	   
+     	   obj.style.opacity=alpha;
+     	  }   
+     	    	 
+     	 }, 30);
+	 
+	 
+	 }
+	 
+window.onload=function(){
+	var oimg=document.getElementById("left");
+	var oimg1=document.getElementById("right");
+	
+	 oimg.onmouseover=function(){
+	  drdc(1,oimg);
+	 };
+	 oimg.onmouseout=function(){
+	  drdc(0.1,oimg);
+	 };
+	 
+	 oimg1.onmouseover=function(){
+	  drdc(1,oimg1);
+	 };
+	 oimg1.onmouseout=function(){
+	  drdc(0.1,oimg1);
+	 };
+	 
+	};
+	
+	
+window.onscroll=function(){
+
+  var oDiv=document.getElementById("guider");
+  var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+  
+  move(scrollTop);
+
+
+};
+
+var timer_1=null;
+function move(tgt){
+  var oDiv=document.getElementById("guider");
+  
+  
+  clearInterval(timer_1);
+  timer_1=setInterval(function(){
+  var speed=(tgt-oDiv.offsetTop)/6;
+  speed=speed>0?Math.ceil(speed):Math.floor(speed);
+  
+  if(oDiv.offsetTop==tgt)
+  {
+     clearInterval(timer_1);
+  }
+  else
+  {
+    oDiv.style.top=oDiv.offsetTop+speed+"px";
+  }
+  
+  
+  }, 30)
+
+
+
+}
+	
+	</script>
+
+  </head>
+  
+  <body>
+    
+     <div id="whole">
+     
+     <div id="header">
+     
+        <div id=guider>
+            
+        
+        </div>
+       
+        
+        <div id=roll>
+
+           <img id="left" class="tb" src="./images/left.png">
+           <img id="right" class="tb" src="./images/right.png">
+
+        </div>
+
+     </div>
+     
+     <div id="contain">
+       
+       <div id="cav">
+           
+            <h1>个人简介</h1><br><br><br>
+            <p>姓名：李钰坤   
+            <p>性别：男   </p>
+            <p>民族：汉</p>  
+            <p>毕业院校：河南大学    </p>
+            <p>院系：计算机与信息工程学院 </p>
+            <p>专业： 软件工程 </p>
+            <p>出生地：河南省  郑州市 新郑市 </p>
+            <p>出生年月:1995年12月29号</p>
+            <p>兴趣爱好：电子竞技 篮球  电影 编程</p>
+            <p>性格：偏内向  时而群欢时而独处</p>
+
+
+       
+       
+       </div>
+    </div>
+     
+     
+     <div id="footer">
+       
+     </div>
+     
+     
+    </div>
+    </body>
+ 
+</html>
+
+

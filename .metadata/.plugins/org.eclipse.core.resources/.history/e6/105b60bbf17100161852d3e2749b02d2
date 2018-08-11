@@ -1,0 +1,99 @@
+
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'index.jsp' starting page</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>NetDemo</title>
+	<meta charset="utf-8">
+  </head>
+  
+   <body onload="alert('this is page')">
+    <script> 
+    var n;
+    n=-1;
+     
+    function abss(n){
+       n=n+3;
+       return n;
+    }
+    // document.write(abss(n));
+    </script>
+    <header>
+       <div id="container">
+          <nav>
+              <ul>
+                 <li><a href="#">home</a> </li>
+                 <li><a href="#">about</a> </li>
+                 <li><a href="#">articles</a> </li>
+                 <li><a href="#">contacts</a> </li>
+              </ul> 
+          </nav>
+       </div>
+        </header>
+        
+        
+        
+       <div id="content">
+          <aside>
+             <div class="inside">
+               <h2>
+               latest news
+               
+               </h2>
+             <ul>
+                 <li><a href="#">June 30 2016</a><br>11548165168469846</li>
+                 <li><a href="#">June 14 2016</a><br>684941616849</li>
+                 <li><a href="#">may 15 2016</a><br>68461654687984</li>
+                 <details>
+                 <summry>展开查看内容</summry>
+                 <p>fvbaoygfobreofbar</p>
+                 <p>sdfaergeyheytjhety</p>
+                 </details>
+              </ul> 
+             </div>
+          </aside>
+          
+          
+          
+          
+          <section id="mycontent">
+           
+           <h2>About your site</h2>
+           <p>第一段内容  <progress value=20 max=100></p>
+           <p>第二段内容</p>
+           
+           <h2>About your team</h2>
+           <ul>
+                 <li><img src="1.jpg"> <br><mark>8949616549849</mark></li>
+                 <li><img src="2.jpg"> <br><mark>8949616549849</mark></li>
+                 <li><img src="3.jpg"> <br><mark>8949616549849</mark></li>
+              </ul> 
+          </section
+          
+       </div>
+       
+       
+       
+       
+   <footer>
+      <div>
+      <li><a href="#">may 15 2016</a><br>6861654984</li>
+      </div>
+   </footer>
+    
+  </body>
+</html>

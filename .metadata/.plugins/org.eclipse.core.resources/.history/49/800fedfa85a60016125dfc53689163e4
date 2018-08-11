@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+#contain {
+  
+
+ }
+ 
+#nav a:hover{
+	 background-color: green;
+	}
+	
+#daohang {
+   width:200px;
+   background-color: gray;
+   position: absolute;
+   top:800px;
+  
+ }
+ 
+#con {
+ position: relative;
+   left: 200px;
+ }
+ 
+#nav1{
+  position: relative;
+   border: solid 1px;
+ }
+ 
+ #nav1 a{
+     position:relative;
+	 height:50px;
+	 width:200px;
+	 font-size: 30px;
+	 font-family:'微软雅黑';
+	 display: block;
+	 text-decoration: none;
+	 line-height: 2;
+	}
+	
+ #nav1 a[href^="#mp"]{
+     font-size:40px;
+	 font-family:'微软雅黑';
+   
+   }
+ #nav1 a:hover{
+	 background-color: green;
+	}
+  
+   
+ .fgx{
+   width:1600px;    	 
+ 
+ }
+ .con{
+    margin: 50px;
+  border: solid 1px; 
+  }
+  #dingwei {
+   position: relative;
+   left: 135px;
+  }
+ 
+ 

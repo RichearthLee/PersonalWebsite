@@ -1,0 +1,7 @@
+INDEX VERSION 1.122+D:\Eclipse\百度云同步盘\MyEclipse 9\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1914012389.index
+1100114223.index
+1891647648.index
+599299672.index
+4061407002.index
+1834632250.index
